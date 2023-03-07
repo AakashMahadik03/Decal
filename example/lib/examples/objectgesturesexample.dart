@@ -111,10 +111,18 @@ class _ObjectGesturesWidgetState extends State<ObjectGesturesWidget> {
         var newNode = ARNode(
             type: NodeType.webGLB,
             uri:
-                "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF-Binary/Duck.glb",
-            scale: Vector3(0.2, 0.2, 0.2),
+                "https://github.com/AakashMahadik03/glTF-Sample-Models/raw/master/2.0/Chair1/glTF-Binary/chair1.glb",
+            scale: Vector3(0.5, 0.5, 0.5),
             position: Vector3(0.0, 0.0, 0.0),
             rotation: Vector4(1.0, 0.0, 0.0, 0.0));
+
+        // // here using this we can take the object from local
+        // var newNode = ARNode(
+        //     type: NodeType.localGLTF2,
+        //     uri: "Models/Chicken_01/Chicken_01.gltf",
+        //     scale: Vector3(0.2, 0.2, 0.2),
+        //     position: Vector3(0.0, 0.0, 0.0),
+        //     rotation: Vector4(1.0, 0.0, 0.0, 0.0));
         bool? didAddNodeToAnchor =
             await this.arObjectManager!.addNode(newNode, planeAnchor: newAnchor);
         if (didAddNodeToAnchor!) {

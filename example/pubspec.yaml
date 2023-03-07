@@ -30,6 +30,8 @@ dependencies:
   geoflutterfire: "^3.0.1"
   path_provider: ^2.0.3
   flutter_archive: ^4.0.1
+  firebase_core_platform_interface: 4.5.1
+
 
 dev_dependencies:
   flutter_test:
@@ -48,8 +50,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - Images/triangle.png
-    - Models/Chicken_01/
+    - assets/Images/
+    - assets/Models/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
