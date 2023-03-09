@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ar_flutter_plugin_example/screens/SignpPage.dart';
-import 'package:ar_flutter_plugin_example/screens/mainpage.dart';
+import 'package:Decal_AR_App/screens/SignpPage.dart';
+import 'package:Decal_AR_App/screens/mainpage.dart';
 
 
 
@@ -9,7 +9,7 @@ void main() => runApp(const Loginpage());
 class Loginpage extends StatelessWidget {
   const Loginpage({Key? key}) : super(key: key);
 
-  static const String _title = 'AR FITTING';
+  static const String _title = 'Decal';
 
   @override
   Widget build(BuildContext context) {

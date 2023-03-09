@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:ar_flutter_plugin_example/constants.dart';
-import 'package:ar_flutter_plugin_example/components/details_screen.dart';
+import 'package:Decal_AR_App/constants.dart';
+import 'package:Decal_AR_App/components/details_screen.dart';
 
-import '../components/details_screen_flowerpot.dart';
+import '../components/details_screen_3table.dart';
+import '../components/details_screen_Decor1.dart';
+import '../components/details_screen_clock.dart';
+import '../components/details_screen_titaniclamp.dart';
+import '../components/details_screen_sofa.dart';
+import '../components/details_screen_wallart1.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -15,73 +20,14 @@ class Body extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
            HeaderWithSearchBox(size: size),
-           TitleWithMoreBtn(title: "Mostly Used", press: () {}),
-           RecomendsPlants(),
-           TitleWithMoreBtn(title: "Designer Things", press: () {}),
-           FeaturedPlants(),
+           TitleWithMoreBtn(title: "Furnitures", press: () {}),
+           Furniture(),
+          TitleWithMoreBtn(title: "Wall Art", press: () {}),
+          WallArt(),
+           TitleWithMoreBtn(title: "Decorectives", press: () {}),
+          Decoretives(),
           SizedBox(height: kDefaultPadding),
         ],
-      ),
-    );
-  }
-}
-class FeaturedPlants extends StatelessWidget {
-  const FeaturedPlants({Key? key}) : super(key: key);
-
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: <Widget>[
-          FeaturePlantCard(
-            image: "assets/Images/img.png",
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailsScreen_flowerpot(),
-                ),
-              );
-            },
-          ),
-          FeaturePlantCard(
-            image: "assets/Images/design2.png",
-            press: () {},
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class FeaturePlantCard extends StatelessWidget {
-  const FeaturePlantCard({Key? key, required this.image, required this.press}) : super(key: key);
-
-  final String image;
-  final VoidCallback? press;
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return GestureDetector(
-      onTap: press,
-      child: Container(
-        margin: EdgeInsets.only(
-          left: kDefaultPadding,
-          top: kDefaultPadding / 2,
-          bottom: kDefaultPadding / 2,
-        ),
-        width: size.width * 0.8,
-        height: 185,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(image),
-          ),
-        ),
       ),
     );
   }
@@ -188,164 +134,7 @@ class HeaderWithSearchBox extends StatelessWidget {
     );
   }
 }
-class RecomendsPlants extends StatelessWidget {
-  const RecomendsPlants({Key? key}) : super(key: key);
 
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: <Widget>[
-
-          RecomendPlantCard(
-
-
-            image: "assets/Images/chair3.PNG",
-            // onTap: () {
-            //   Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //           builder: (context) => DetailsScreen()));
-            // },
-            title: "Chair",
-            country: "AR",
-            price: 440,
-
-
-            Press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailsScreen(),
-                ),
-              );
-            },
-
-          ),
-
-          RecomendPlantCard(
-            image: "assets/Images/bed1.png",
-            // onTap: () {
-            //   Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //           builder: (context) => DetailsScreen()));
-            // },
-            title: "Bed",
-            country: "AR",
-            price: 440,
-            Press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailsScreen(),
-                ),
-              );
-            },
-          ),
-          RecomendPlantCard(
-            image: "assets/Images/chair2.png",
-            // onTap: () {
-            //   Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //           builder: (context) => DetailsScreen()));
-            // },
-            title: "Gamig chair",
-            country: "AR",
-            price: 440,
-
-
-            Press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailsScreen(),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class RecomendPlantCard extends StatelessWidget {
-  const RecomendPlantCard({Key? key, required this.image, required this.title, required this.country, required this.price, required this.Press,  }) : super(key: key);
-
-
-  final String image, title, country;
-  final int price;
-  final  VoidCallback? Press;
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      margin: EdgeInsets.only(
-        left: kDefaultPadding,
-        top: kDefaultPadding / 2,
-        bottom: kDefaultPadding * 2.5,
-      ),
-      width: size.width * 0.4,
-      child: Column(
-        children: <Widget>[
-          Image.asset(image),
-          GestureDetector(
-            onTap: Press,
-            child: Container(
-              padding: EdgeInsets.all(kDefaultPadding / 2),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10),
-                  bottomRight: Radius.circular(10),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 10),
-                    blurRadius: 50,
-                    color: kPrimaryColor.withOpacity(0.23),
-                  ),
-                ],
-              ),
-              child: Row(
-                children: <Widget>[
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                            text: "$title\n".toUpperCase(),
-                            style: Theme.of(context).textTheme.button),
-                        TextSpan(
-                          text: "$country".toUpperCase(),
-                          style: TextStyle(
-                            color: kPrimaryColor.withOpacity(0.5),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Spacer(),
-                  Text(
-                    '\$$price',
-                    style: Theme.of(context)
-                        .textTheme
-                        .button!
-                        .copyWith(color: kPrimaryColor),
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
 class TitleWithMoreBtn extends StatelessWidget {
   const TitleWithMoreBtn({Key? key, required this.title, required this.press,}) : super(key: key);
   final String title;
@@ -435,3 +224,402 @@ class TitleWithCustomUnderline extends StatelessWidget {
     );
   }
 }
+class Furniture extends StatelessWidget {
+  const Furniture({Key? key}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: <Widget>[
+
+          FurnitureCard(
+
+
+            image: "assets/Images/model.png",
+            // onTap: () {
+            //   Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (context) => DetailsScreen()));
+            // },
+            title: "Chair",
+            country: "Elastic",
+            price: 440,
+
+
+            Press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
+
+          ),
+
+          FurnitureCard(
+            image: "assets/Images/sofa.png",
+            // onTap: () {
+            //   Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (context) => DetailsScreen()));
+            // },
+            title: "SOFA",
+            country: "Fabric Luxury",
+            price: 440,
+            Press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen_Sofa(),
+                ),
+              );
+            },
+          ),
+          FurnitureCard(
+            image: "assets/Images/3table.png",
+            // onTap: () {
+            //   Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (context) => DetailsScreen()));
+            // },
+            title: "Table ",
+            country: "3 Stand",
+            price: 440,
+
+
+            Press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen_3table(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class FurnitureCard extends StatelessWidget {
+  const FurnitureCard({Key? key, required this.image, required this.title, required this.country, required this.price, required this.Press,  }) : super(key: key);
+
+
+  final String image, title, country;
+  final int price;
+  final  VoidCallback? Press;
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      margin: EdgeInsets.only(
+        left: kDefaultPadding,
+        top: kDefaultPadding / 2,
+        bottom: kDefaultPadding * 2.5,
+      ),
+      width: size.width * 0.45,
+      child: Column(
+        children: <Widget>[
+          Image.asset(image),
+          GestureDetector(
+            onTap: Press,
+            child: Container(
+              padding: EdgeInsets.all(kDefaultPadding / 2),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 50,
+                    color: kPrimaryColor.withOpacity(0.23),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: <Widget>[
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                            text: "$title\n".toUpperCase(),
+                            style: Theme.of(context).textTheme.button),
+                        TextSpan(
+                          text: "$country".toUpperCase(),
+                          style: TextStyle(
+                            color: kPrimaryColor.withOpacity(0.5),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    '\$$price',
+                    style: Theme.of(context)
+                        .textTheme
+                        .button!
+                        .copyWith(color: kPrimaryColor),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class WallArt extends StatelessWidget {
+  const WallArt({Key? key}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: <Widget>[
+
+          WallArtCard(
+
+
+            image: "assets/Images/WallArt.png",
+            // onTap: () {
+            //   Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (context) => DetailsScreen()));
+            // },
+            title: "PHOTO",
+            country: "FRAME",
+            price: 440,
+
+
+            Press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen_wallart1(),
+                ),
+              );
+            },
+
+          ),
+
+          WallArtCard(
+            image: "assets/Images/WallArt1.png",
+            // onTap: () {
+            //   Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (context) => DetailsScreen()));
+            // },
+            title: "Panel ceramic",
+            country: "Natalie Blake",
+            price: 440,
+            Press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
+          ),
+          WallArtCard(
+            image: "assets/Images/WallArt2.png",
+            // onTap: () {
+            //   Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (context) => DetailsScreen()));
+            // },
+            title: "PICTURE FRAME",
+            country: "BLACK & WHITE",
+            price: 440,
+
+
+            Press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class WallArtCard extends StatelessWidget {
+  const WallArtCard({Key? key, required this.image, required this.title, required this.country, required this.price, required this.Press,  }) : super(key: key);
+
+
+  final String image, title, country;
+  final int price;
+  final  VoidCallback? Press;
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      margin: EdgeInsets.only(
+        left: kDefaultPadding,
+        top: kDefaultPadding / 2,
+        bottom: kDefaultPadding * 2.5,
+      ),
+      width: size.width * 0.45,
+      child: Column(
+        children: <Widget>[
+          Image.asset(image),
+          GestureDetector(
+            onTap: Press,
+            child: Container(
+              padding: EdgeInsets.all(kDefaultPadding / 2),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 50,
+                    color: kPrimaryColor.withOpacity(0.23),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: <Widget>[
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                            text: "$title\n".toUpperCase(),
+                            style: Theme.of(context).textTheme.button),
+                        TextSpan(
+                          text: "$country".toUpperCase(),
+                          style: TextStyle(
+                            color: kPrimaryColor.withOpacity(0.5),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    '\$$price',
+                    style: Theme.of(context)
+                        .textTheme
+                        .button!
+                        .copyWith(color: kPrimaryColor),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+class Decoretives extends StatelessWidget {
+  const Decoretives({Key? key}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: <Widget>[
+          DecoretivesCard(
+            image: "assets/Images/Decor2.png",
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen_titacniclamp(),
+                ),
+              );
+            },
+          ),
+          DecoretivesCard(
+            image: "assets/Images/Decor1.png",
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen_Decor1(),
+                ),
+              );
+            },
+          ),
+          DecoretivesCard(
+            image: "assets/Images/Vase-rose.jpg",
+            press: () {},
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DecoretivesCard extends StatelessWidget {
+  const DecoretivesCard({Key? key, required this.image, required this.press}) : super(key: key);
+
+  final String image;
+  final VoidCallback? press;
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return GestureDetector(
+      onTap: press,
+      child: Container(
+        margin: EdgeInsets.only(
+          left: kDefaultPadding,
+          top: kDefaultPadding / 2,
+          bottom: kDefaultPadding / 2,
+        ),
+        width: size.width * 0.45,
+        height: 185,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(image),
+          ),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, 10),
+              blurRadius: 50,
+              color: kPrimaryColor.withOpacity(0.08),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+

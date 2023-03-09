@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:ar_flutter_plugin_example/screens/LoginPage.dart';
-import 'package:ar_flutter_plugin_example/screens/SignpPage.dart';
+import 'package:Decal_AR_App/screens/LoginPage.dart';
+import 'package:Decal_AR_App/screens/SignpPage.dart';
 
 void main() => runApp(const SignupPage());
 
 class SignupPage extends StatelessWidget {
   const SignupPage({Key? key}) : super(key: key);
 
-  static const String _title = 'AR FITTING';
+  static const String _title = 'Decal';
 
   @override
   Widget build(BuildContext context) {

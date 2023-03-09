@@ -1,4 +1,4 @@
-package io.carius.lars.ar_flutter_plugin_example
+package io.carius.lars.Decal_AR_App
 
 import io.flutter.embedding.android.FlutterActivity
 

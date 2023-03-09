@@ -1,4 +1,4 @@
-# ar_flutter_plugin_example
+# Decal_AR_App
 
 Demonstrates how to use the ar_flutter_plugin plugin to create collaborative AR experiences.
 

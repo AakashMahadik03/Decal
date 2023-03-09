@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.carius.lars.ar_flutter_plugin_example">
+    package="io.carius.lars.Decal_AR_App">
    <application
-        android:label="ar_flutter_plugin_example"
+        android:label="Decal_AR_App"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:exported="true"
